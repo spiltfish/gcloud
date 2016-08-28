@@ -32,8 +32,8 @@ func getClient()(computeService *compute.Service) {
 }
 
 
-func ReadConfig()(gci GCloudInfo){
-	filename, _ := filepath.Abs("./gcloud_config.yml")
+func ReadConfig()(gci GCloudInfo, location string){
+	filename, _ := filepath.Abs(location)
 	yamlFile, err := ioutil.ReadFile(filename)
 	if err != nil {
 		log.Fatalf("error: %v", err)
