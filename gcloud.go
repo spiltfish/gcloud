@@ -32,7 +32,7 @@ func getClient()(computeService *compute.Service) {
 }
 
 
-func ReadConfig()(gci GCloudInfo, location string){
+func ReadConfig(location string)(gci GCloudInfo){
 	filename, _ := filepath.Abs(location)
 	yamlFile, err := ioutil.ReadFile(filename)
 	if err != nil {
