@@ -48,8 +48,7 @@ func ReadConfig(location string)(gci GCloudInfo){
 	return gci
 }
 
-func Start_server()(result *compute.Operation){
-	gci := ReadConfig()
+func Start_server(gci GCloudInfo)(result *compute.Operation){
 	svc := getClient()
 	result, err := svc.Instances.Start(gci.ProjectId, gci.Zone, gci.Instance).Do()
 	if err != nil {
@@ -59,8 +58,7 @@ func Start_server()(result *compute.Operation){
 	return result
 }
 
-func Status_server()(result *compute.Instance){
-	gci := ReadConfig()
+func Status_server(gci GCloudInfo)(result *compute.Instance){
 	svc := getClient()
 	result, err := svc.Instances.Get(gci.ProjectId, gci.Zone, gci.Instance).Do()
 	if err != nil {
@@ -70,8 +68,7 @@ func Status_server()(result *compute.Instance){
 	return result
 }
 
-func Stop_server()(result *compute.Operation){
-	gci := ReadConfig()
+func Stop_server(gci GCloudInfo)(result *compute.Operation){
 	svc := getClient()
 	result, err := svc.Instances.Stop(gci.ProjectId, gci.Zone, gci.Instance).Do()
 	if err != nil {
