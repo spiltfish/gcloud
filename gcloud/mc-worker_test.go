@@ -10,9 +10,9 @@ var(
 )
 
 func TestStartServer(t *testing.T){
-	Gci = ReadConfig("./gcloud_config.yml")
+	Gci = ReadConfig("./test_mc-worker_config.yml")
 
-	Start_server(Gci)
+	Start_server(Gci, "test")
 
 }
 
